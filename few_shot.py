@@ -1,4 +1,4 @@
-few_shorts=[
+few_shot=[
     {
      "Question":"How many t-shirts do we have left for nike in extra small size and white color?",
      "SQLQuery":"SELECT stock_quantity FROM t_shirts WHERE [brand] = 'Nike' AND [size] = 'XS' AND [color] = 'White'",

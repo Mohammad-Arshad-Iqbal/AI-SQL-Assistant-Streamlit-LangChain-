@@ -8,7 +8,7 @@ from langchain.vectorstores import Chroma
 from langchain.prompts import SemanticSimilarityExampleSelector
 from langchain.prompts import PromptTemplate
 from langchain.prompts import FewShotPromptTemplate
-from few_shorts import few_shorts
+from few_shot import few_shot
 
 def get_few_shotdb_chain():
     llm=ChatGoogleGenerativeAI(
@@ -25,8 +25,8 @@ def get_few_shotdb_chain():
         f"mssql+pyodbc://@{db_host}/{db_name}?driver=ODBC+Driver+18+for+SQL+Server&trusted_connection=yes&TrustServerCertificate=yes"
     )
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-    to_vectorize=[" ".join(example.values()) for example in few_shorts]
-    vectorstore=Chroma.from_texts(to_vectorize,embedding=embeddings,metadatas=few_shorts)
+    to_vectorize=[" ".join(example.values()) for example in few_shot]
+    vectorstore=Chroma.from_texts(to_vectorize,embedding=embeddings,metadatas=few_shot)
     example_selector=SemanticSimilarityExampleSelector(
     vectorstore=vectorstore,
     k=3)
