@@ -13,7 +13,7 @@ from few_shot import few_shot
 def get_few_shotdb_chain():
     llm=ChatGoogleGenerativeAI(
         model="gemini-2.5-flash",
-        api_key="Insert API key Here",
+        api_key="AIzaSyDcE4hTsoJFFZ0Kp5iBT-A1vrhMAmpmWjo",
         temperature=0.2)
 
     db_user = ""   
